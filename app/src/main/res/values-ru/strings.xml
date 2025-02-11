@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Eternity</string>
+    <string name="storage">Хранилище</string>
+    <string name="generator">Генератор</string>
+    <string name="generate_password">Сгенерировать пароль</string>
+    <string name="settings">Настройки</string>
+    <string name="length">Длина</string>
+    <string name="copy">Копировать</string>
+
+
+</resources>
