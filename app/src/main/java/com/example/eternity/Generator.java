@@ -48,7 +48,7 @@ public class Generator extends Fragment {
 
         // Установка начального значения SeekBar на 16
         passwordLengthSeekBar.setProgress(16);
-        passwordLengthLabel.setText("Длина\n16");
+        passwordLengthLabel.setText(getString(R.string.length) +"\n16");
 
         Switch specialCharsSwitch = view.findViewById(R.id.specialCharsSwitch);
         Switch capitalLettersSwitch = view.findViewById(R.id.capitalLettersSwitch);
@@ -70,7 +70,7 @@ public class Generator extends Fragment {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 passwordLength = Math.max(progress, 8); // Минимальная длина 8
-                passwordLengthLabel.setText("Длина\n" + passwordLength);
+                passwordLengthLabel.setText(getString(R.string.length) + "\n" + passwordLength);
                 savePreferences(passwordLength);
                 String newPassword = generatePassword(
                         passwordLength,

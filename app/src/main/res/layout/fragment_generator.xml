@@ -11,7 +11,7 @@
     <TextView
         android:id="@+id/passwordTextView"
         android:layout_width="275dp"
-        android:layout_height="68dp"
+        android:layout_height="wrap_content"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

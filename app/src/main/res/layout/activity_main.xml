@@ -21,28 +21,31 @@
         android:id="@+id/tab_layout"
 
         android:background="@color/black"
-        app:tabTextAppearance="@style/TabLayoutStyle"
+
         app:tabIndicatorColor="@color/teal"
         app:tabSelectedTextColor="@color/teal"
         app:tabRippleColor="@color/teal"
 
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.tabs.TabItem
+            android:icon="@drawable/storage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/storage" />
 
         <com.google.android.material.tabs.TabItem
+            android:icon="@drawable/generator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/generator" />
 
         <com.google.android.material.tabs.TabItem
+            android:icon="@drawable/settings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/settings" />
