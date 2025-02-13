@@ -22,10 +22,13 @@
 
     <ImageButton
         android:id="@+id/btnCopy"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:background="@drawable/circle_button"
         android:padding="10dp"
+
         android:scaleType="centerInside"
+        android:src="@drawable/ic_copy"
         app:layout_constraintBottom_toBottomOf="@+id/passwordTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/passwordTextView"
@@ -67,50 +70,50 @@
         app:layout_constraintTop_toTopOf="@+id/passwordLengthSeekBar"
         app:layout_constraintVertical_bias="0.533" />
 
-    <Switch
+    <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/specialCharsSwitch"
         android:layout_width="325dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
+
+
+
         android:layout_marginTop="56dp"
         android:text="!@#$%^&amp;*()-_=+"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordLengthSeekBar"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordLengthSeekBar" />
 
-    <Switch
+    <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/capitalLettersSwitch"
         android:layout_width="325dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="A-Z"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/specialCharsSwitch"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
+        app:layout_constraintTop_toBottomOf="@+id/specialCharsSwitch" />
 
-    <Switch
+    <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/smallLettersSwitch"
         android:layout_width="325dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="a-z"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/capitalLettersSwitch"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
+        app:layout_constraintTop_toBottomOf="@+id/capitalLettersSwitch" />
 
-    <Switch
+    <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/numbersSwitch"
         android:layout_width="325dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="0-9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/smallLettersSwitch"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
+        app:layout_constraintTop_toBottomOf="@+id/smallLettersSwitch" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

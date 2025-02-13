@@ -15,6 +15,9 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.fragment.app.Fragment;
+
+import com.google.android.material.switchmaterial.SwitchMaterial;
+
 import java.security.SecureRandom;
 
 public class Generator extends Fragment {
@@ -50,10 +53,10 @@ public class Generator extends Fragment {
         passwordLengthSeekBar.setProgress(16);
         passwordLengthLabel.setText(getString(R.string.length) +"\n16");
 
-        Switch specialCharsSwitch = view.findViewById(R.id.specialCharsSwitch);
-        Switch capitalLettersSwitch = view.findViewById(R.id.capitalLettersSwitch);
-        Switch smallLettersSwitch = view.findViewById(R.id.smallLettersSwitch);
-        Switch numbersSwitch = view.findViewById(R.id.numbersSwitch);
+        SwitchMaterial specialCharsSwitch = view.findViewById(R.id.specialCharsSwitch);
+        SwitchMaterial capitalLettersSwitch = view.findViewById(R.id.capitalLettersSwitch);
+        SwitchMaterial smallLettersSwitch = view.findViewById(R.id.smallLettersSwitch);
+        SwitchMaterial numbersSwitch = view.findViewById(R.id.numbersSwitch);
 
 
         // Инициализация свитчей
@@ -61,6 +64,7 @@ public class Generator extends Fragment {
         capitalLettersSwitch.setChecked(true); // Включаем заглавные буквы
         smallLettersSwitch.setChecked(true); // Включаем маленькие буквы
         numbersSwitch.setChecked(true); // Включаем цифры
+
 
         // Восстанавливаем значения ползунков
         loadPreferences(passwordLengthSeekBar, specialCharsSwitch, capitalLettersSwitch, smallLettersSwitch, numbersSwitch, passwordLengthLabel);
@@ -211,7 +215,7 @@ public class Generator extends Fragment {
         editor.apply();
     }
 
-    private void loadPreferences(SeekBar passwordLengthSeekBar, Switch specialCharsSwitch, Switch capitalLettersSwitch, Switch smallLettersSwitch, Switch numbersSwitch, TextView passwordLengthLabel) {
+    private void loadPreferences(SeekBar passwordLengthSeekBar, SwitchMaterial specialCharsSwitch, SwitchMaterial capitalLettersSwitch, SwitchMaterial smallLettersSwitch, SwitchMaterial numbersSwitch, TextView passwordLengthLabel) {
         SharedPreferences preferences = requireContext().getSharedPreferences("PasswordPreferences", Context.MODE_PRIVATE);
 
         // Восстанавливаем настройки свитчей
@@ -225,10 +229,11 @@ public class Generator extends Fragment {
         smallLettersSwitch.setChecked(useSmallLetters);
         numbersSwitch.setChecked(useNumbers);
 
+
         // Восстанавливаем значение ползунка
         passwordLength = preferences.getInt("passwordLength", 16); // 16 — значение по умолчанию
         passwordLengthSeekBar.setProgress(passwordLength);
-        passwordLengthLabel.setText("Длина\n" + passwordLength);
+        passwordLengthLabel.setText(getString(R.string.length) + "\n" + passwordLength);
     }
 
 
