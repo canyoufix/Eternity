@@ -14,5 +14,12 @@
     <color name="gray">#808080</color>
 
 
+    <color name="dark_navy">#04080E</color> <!-- Тёмно-синий (почти чёрный) -->
+    <color name="deep_navy">#0C1C2E</color> <!-- Глубокий тёмно-синий -->
+    <color name="steel_blue">#415A6B</color> <!-- Средний сине-серый -->
+    <color name="light_steel_blue">#7E9AAC</color> <!-- Светло-серый с голубым оттенком -->
+    <color name="pale_blue_gray">#C0CFD6</color> <!-- Очень светлый серо-голубой -->
+
+
 
 </resources>

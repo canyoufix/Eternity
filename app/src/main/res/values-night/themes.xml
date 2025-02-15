@@ -2,6 +2,17 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Eternity" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Основной цвет -->
+        <item name="colorPrimary">@color/deep_navy</item>
+        <item name="colorPrimaryVariant">@color/dark_navy</item>
+        <item name="colorSecondary">@color/steel_blue</item>
+
+        <item name="android:colorBackground">@color/dark_navy</item>
+
+        <item name="android:textColorPrimary">@color/light_steel_blue</item>
+        <item name="android:colorButtonNormal">@color/steel_blue</item>
+        <item name="colorOnPrimary">@color/light_steel_blue</item>
+        
+
 
     </style>
 </resources>

@@ -7,4 +7,11 @@
     <string name="length">Length</string>
     <string name="copy">Copy</string>
 
+    <string-array name="entry_types">
+        <item>Пароль</item>
+        <item>Карта</item>
+        <item>Защищённая заметка</item>
+    </string-array>
+
+
 </resources>
