@@ -1,0 +1,46 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/storage">
+
+    <!-- Фрагмент Пароли -->
+    <fragment
+        android:id="@+id/storage"
+        android:name="com.example.eternity.ui.main.Storage"
+        tools:layout="@layout/fragment_storage">
+    </fragment>
+
+    <!-- Фрагмент Генератор -->
+    <fragment
+        android:id="@+id/generator"
+        android:name="com.example.eternity.ui.main.Generator"
+        tools:layout="@layout/fragment_generator">
+    </fragment>
+
+    <!-- Фрагмент Настройки -->
+    <fragment
+        android:id="@+id/settings"
+        android:name="com.example.eternity.ui.main.Settings"
+        tools:layout="@layout/fragment_settings">
+    </fragment>
+
+    <fragment
+        android:id="@+id/password"
+        android:name="com.example.eternity.ui.storage.Password"
+        tools:layout="@layout/fragment_password">
+    </fragment>
+
+    <fragment
+        android:id="@+id/card"
+        android:name="com.example.eternity.ui.storage.Card"
+        tools:layout="@layout/fragment_card">
+    </fragment>
+
+    <fragment
+        android:id="@+id/note"
+        android:name="com.example.eternity.ui.storage.Note"
+        tools:layout="@layout/fragment_note">
+    </fragment>
+</navigation>
+

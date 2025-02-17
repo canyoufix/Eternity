@@ -1,7 +1,6 @@
 package com.example.eternity.repository;
 
 import android.app.Application;
-import android.util.Log;
 
 import com.example.eternity.database.AppDatabase;
 import com.example.eternity.dao.PasswordDao;
@@ -11,7 +10,6 @@ import com.example.eternity.models.Password;
 import com.example.eternity.models.Card;
 import com.example.eternity.models.Note;
 
-import java.util.List;
 
 public class EntryRepository {
 
