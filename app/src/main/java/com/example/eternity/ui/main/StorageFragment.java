@@ -1,6 +1,8 @@
 package com.example.eternity.ui.main;
 
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -15,13 +17,13 @@ import android.widget.Toast;
 import com.example.eternity.R;
 import com.example.eternity.adapter.CategoryAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.example.eternity.ui.BottomSheetAddEntryFragment;
+import com.example.eternity.BottomSheetAddEntryFragment;
 
 import java.util.Arrays;
 import java.util.List;
 
 
-public class Storage extends Fragment {
+public class StorageFragment extends Fragment {
 
     private RecyclerView recyclerCategories;
     private CategoryAdapter categoryAdapter;
@@ -31,6 +33,16 @@ public class Storage extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_storage, container, false);
+
+        // Получаем доступ к Toolbar через NavController
+        if (getActivity() != null) {
+            AppCompatActivity activity = (AppCompatActivity) getActivity();
+            if (activity.getSupportActionBar() != null) {
+                // Показываем стрелку "назад" в ActionBar
+                activity.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+                activity.getSupportActionBar().setDisplayShowHomeEnabled(false);
+            }
+        }
 
         recyclerCategories = view.findViewById(R.id.recyclerCategories);
         recyclerCategories.setLayoutManager(new LinearLayoutManager(getContext()));

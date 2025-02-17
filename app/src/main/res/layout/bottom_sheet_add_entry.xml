@@ -19,6 +19,18 @@
         app:layout_constraintHorizontal_bias="0.5"
         android:entries="@array/entry_types" />
 
+    <!-- Поле для Названия (общее для всех типов) -->
+    <EditText
+        android:id="@+id/etTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Название"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerType"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
+
     <!-- Поля для пароля -->
     <EditText
         android:id="@+id/etSite"
@@ -26,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:hint="Сайт"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerType"
+        app:layout_constraintTop_toBottomOf="@+id/etTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5" />
@@ -104,24 +116,13 @@
 
     <!-- Поля для защищённой заметки -->
     <EditText
-        android:id="@+id/etNoteTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="Заголовок"
-        app:layout_constraintTop_toBottomOf="@+id/etCardCVC"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5" />
-
-    <EditText
         android:id="@+id/etNoteContent"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:hint="Содержимое"
         android:inputType="textMultiLine"
-        app:layout_constraintTop_toBottomOf="@+id/etNoteTitle"
+        app:layout_constraintTop_toBottomOf="@+id/etCardCVC"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5" />
@@ -148,4 +149,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         android:layout_marginTop="8dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

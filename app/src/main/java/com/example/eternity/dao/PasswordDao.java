@@ -1,22 +1,23 @@
 package com.example.eternity.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
-import com.example.eternity.models.Password;
+import com.example.eternity.models.PasswordModel;
 
 import java.util.List;
 
 @Dao
 public interface PasswordDao {
     @Insert
-    void insert(Password password);
+    void insert(PasswordModel password);
 
     @Delete
-    void delete(Password password);
+    void delete(PasswordModel password);
 
     @Query("SELECT * FROM passwords")
-    List<Password> getAllPasswords();
+    LiveData<List<PasswordModel>> getAllPasswords();
 }

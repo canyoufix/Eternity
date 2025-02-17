@@ -13,6 +13,8 @@ import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.eternity.R;
@@ -20,7 +22,7 @@ import com.google.android.material.switchmaterial.SwitchMaterial;
 
 import java.security.SecureRandom;
 
-public class Generator extends Fragment {
+public class GeneratorFragment extends Fragment {
     // Строки с возможными символами
     private static final String SMALL_LETTERS = "abcdefghijklmnopqrstuvwxyz";
     private static final String CAPITAL_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -40,6 +42,15 @@ public class Generator extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_generator, container, false);
 
+        // Получаем доступ к Toolbar через NavController
+        if (getActivity() != null) {
+            AppCompatActivity activity = (AppCompatActivity) getActivity();
+            if (activity.getSupportActionBar() != null) {
+                // Показываем стрелку "назад" в ActionBar
+                activity.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+                activity.getSupportActionBar().setDisplayShowHomeEnabled(false);
+            }
+        }
 
         Button generateButton = view.findViewById(R.id.btnGenerate);
         ImageButton copyButton = view.findViewById(R.id.btnCopy);

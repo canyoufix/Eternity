@@ -1,4 +1,4 @@
-package com.example.eternity.ui;
+package com.example.eternity;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -14,16 +14,16 @@ import android.widget.Spinner;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.eternity.R;
-import com.example.eternity.models.Card;
-import com.example.eternity.models.Note;
-import com.example.eternity.models.Password;
+import com.example.eternity.models.CardModel;
+import com.example.eternity.models.NoteModel;
+import com.example.eternity.models.PasswordModel;
 import com.example.eternity.viewmodel.EntryViewModel;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class BottomSheetAddEntryFragment extends BottomSheetDialogFragment {
 
     private Spinner spinnerType;
-    private EditText etSite, etUsername, etPassword, etCardNumber, etCardHolder, etCardExpiry, etCardCVC, etNoteTitle, etNoteContent;
+    private EditText etTitle, etSite, etUsername, etPassword, etCardNumber, etCardHolder, etCardExpiry, etCardCVC, etNoteContent;
     private Button btnSave, btnCancel;
     private EntryViewModel entryViewModel;
 
@@ -38,6 +38,7 @@ public class BottomSheetAddEntryFragment extends BottomSheetDialogFragment {
 
         // Инициализация всех элементов
         spinnerType = view.findViewById(R.id.spinnerType);
+        etTitle = view.findViewById(R.id.etTitle);
         etSite = view.findViewById(R.id.etSite);
         etUsername = view.findViewById(R.id.etUsername);
         etPassword = view.findViewById(R.id.etPassword);
@@ -45,7 +46,6 @@ public class BottomSheetAddEntryFragment extends BottomSheetDialogFragment {
         etCardHolder = view.findViewById(R.id.etCardHolder);
         etCardExpiry = view.findViewById(R.id.etCardExpiry);
         etCardCVC = view.findViewById(R.id.etCardCVC);
-        etNoteTitle = view.findViewById(R.id.etNoteTitle);
         etNoteContent = view.findViewById(R.id.etNoteContent);
         btnSave = view.findViewById(R.id.btnSave);
         btnCancel = view.findViewById(R.id.btnCancel);
@@ -88,7 +88,8 @@ public class BottomSheetAddEntryFragment extends BottomSheetDialogFragment {
         btnSave.setOnClickListener(v -> {
             switch (spinnerType.getSelectedItemPosition()) {
                 case 0: // Пароль
-                    Password password = new Password();
+                    PasswordModel password = new PasswordModel();
+                    password.setTitle(etTitle.getText().toString());  // Используем новое поле Title
                     password.setSite(etSite.getText().toString());
                     password.setUsername(etUsername.getText().toString());
                     password.setPassword(etPassword.getText().toString());
@@ -97,7 +98,8 @@ public class BottomSheetAddEntryFragment extends BottomSheetDialogFragment {
                     break;
 
                 case 1: // Карта
-                    Card card = new Card();
+                    CardModel card = new CardModel();
+                    card.setTitle(etTitle.getText().toString());  // Используем новое поле Title
                     card.setCardNumber(etCardNumber.getText().toString());
                     card.setCardHolder(etCardHolder.getText().toString());
                     card.setExpiryDate(etCardExpiry.getText().toString());
@@ -106,8 +108,8 @@ public class BottomSheetAddEntryFragment extends BottomSheetDialogFragment {
                     break;
 
                 case 2: // Защищенная заметка
-                    Note note = new Note();
-                    note.setTitle(etNoteTitle.getText().toString());
+                    NoteModel note = new NoteModel();
+                    note.setTitle(etTitle.getText().toString());  // Используем новое поле Title
                     note.setContent(etNoteContent.getText().toString());
                     entryViewModel.insertNote(note);
                     break;
@@ -128,7 +130,6 @@ public class BottomSheetAddEntryFragment extends BottomSheetDialogFragment {
         etCardHolder.setVisibility(View.GONE);
         etCardExpiry.setVisibility(View.GONE);
         etCardCVC.setVisibility(View.GONE);
-        etNoteTitle.setVisibility(View.GONE);
         etNoteContent.setVisibility(View.GONE);
     }
 
@@ -149,7 +150,7 @@ public class BottomSheetAddEntryFragment extends BottomSheetDialogFragment {
 
     // Метод для показа полей для защищенной заметки
     private void showNoteFields() {
-        etNoteTitle.setVisibility(View.VISIBLE);
         etNoteContent.setVisibility(View.VISIBLE);
     }
 }
+

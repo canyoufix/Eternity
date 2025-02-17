@@ -13,16 +13,16 @@ import com.example.eternity.dao.CardDao;
 import com.example.eternity.dao.NoteDao;
 import com.example.eternity.dao.PasswordDao;
 
-import com.example.eternity.models.Card;
-import com.example.eternity.models.Note;
-import com.example.eternity.models.Password;
+import com.example.eternity.models.CardModel;
+import com.example.eternity.models.NoteModel;
+import com.example.eternity.models.PasswordModel;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 
 
-@Database(entities = {Password.class, Card.class, Note.class}, version = 1)
+@Database(entities = {PasswordModel.class, CardModel.class, NoteModel.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase INSTANCE;
 
