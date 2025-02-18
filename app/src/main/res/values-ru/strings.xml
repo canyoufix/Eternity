@@ -7,6 +7,10 @@
     <string name="length">Длина</string>
     <string name="copy">Копировать</string>
 
+    <string name="password">Пароль</string>
+    <string name="card">Карта</string>
+    <string name="note">Заметка</string>
+
     <string-array name="entry_types">
         <item>Password</item>
         <item>Card</item>

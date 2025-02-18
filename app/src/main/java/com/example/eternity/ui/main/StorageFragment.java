@@ -63,13 +63,13 @@ public class StorageFragment extends Fragment {
             Bundle bundle = new Bundle();
             switch (categoryName) {
                 case "Логин":
-                    navController.navigate(R.id.password); // переход к фрагменту паролей
+                    navController.navigate(R.id.passwordFragment); // переход к фрагменту паролей
                     break;
                 case "Карта":
-                    navController.navigate(R.id.card); // переход к фрагменту карт
+                    navController.navigate(R.id.cardFragment); // переход к фрагменту карт
                     break;
                 case "Защищенная заметка":
-                    navController.navigate(R.id.note); // переход к фрагменту заметок
+                    navController.navigate(R.id.noteFragment); // переход к фрагменту заметок
                     break;
             }
         });

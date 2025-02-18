@@ -14,62 +14,47 @@ import androidx.navigation.ui.AppBarConfiguration;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
-
     private Toolbar toolbar;
-    private BottomNavigationView bottomNavigation;
+    private BottomNavigationView bottomNavigationView;
     private NavController navController;
-    private HashMap<Integer, String> titleMap;
+    private AppBarConfiguration appBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Инициализация Toolbar
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        // Находим BottomNavigation
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        // Инициализация NavController
+        // Находим NavHostFragment, который будет содержать навигацию
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.nav_host_fragment);
         navController = navHostFragment.getNavController();
 
-        // Инициализация BottomNavigationView
-        bottomNavigation = findViewById(R.id.bottom_navigation);
-        NavigationUI.setupWithNavController(bottomNavigation, navController);
+        // Настройка BottomNavigation для работы с NavController
+        NavigationUI.setupWithNavController(bottomNavigationView, navController);
 
-        // Инициализация карты заголовков
-        initTitleMap();
 
-        // Установка заголовка по умолчанию
-        //getSupportActionBar().setTitle("Your Title");
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        // Слушатель для изменения заголовка при переходе между фрагментами
-        navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
-            updateToolbarTitle(destination.getId());
-        });
-    }
+        // Настройка действия с Toolbar (если используете)
+        appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.storageFragment, R.id.generatorFragment, R.id.settingsFragment)
+                .build();
 
-    private void initTitleMap() {
-        titleMap = new HashMap<>();
-        titleMap.put(R.id.storage, getString(R.string.storage));  // Заголовок для фрагмента storage
-        titleMap.put(R.id.generator, getString(R.string.generator));  // Заголовок для фрагмента generator
-        titleMap.put(R.id.settings, getString(R.string.settings));  // Заголовок для фрагмента settings
-        // Добавьте сюда остальные ваши фрагменты, если нужно
-    }
-
-    private void updateToolbarTitle(int fragmentId) {
-        String title = titleMap.get(fragmentId);
-        if (title != null) {
-            getSupportActionBar().setTitle(title); // Обновляем заголовок
-        }
+        // Настройка ActionBar для отображения заголовков фрагментов
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
     }
 
     @Override
     public boolean onSupportNavigateUp() {
-        return navController.navigateUp();
+        return NavigationUI.navigateUp(navController, appBarConfiguration)
+                || super.onSupportNavigateUp();
     }
 }
+
 
 
 
