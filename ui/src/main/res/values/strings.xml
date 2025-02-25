@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="storage">Eternity UI</string>
-    <string name="generator">Eternity UI</string>
-    <string name="settings">Eternity UI</string>
+    <string name="storage">Storage</string>
+    <string name="generator">Generator</string>
+    <string name="settings">Settings</string>
 </resources>

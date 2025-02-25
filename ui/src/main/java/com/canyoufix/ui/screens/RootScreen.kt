@@ -7,6 +7,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.canyoufix.ui.components.BottomNavigationBar
+import com.canyoufix.ui.screens.generator.GeneratorScreen
+import com.canyoufix.ui.screens.settings.SettingsScreen
 import com.canyoufix.ui.screens.storage.StorageScreen
 
 
@@ -27,8 +29,8 @@ fun RootScreen() {
 
                 ) {
                 composable("storage_screen") { StorageScreen() }
-                //composable("generator_screen") { GenPassScreen() }
-                //composable("settings_screen") { SettingsScreen(navController) }
+                composable("generator_screen") { GeneratorScreen() }
+                composable("settings_screen") { SettingsScreen(navController) }
                 //composable("about_screen") { AboutScreen() }
             }
         }
